@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Bar } from "react-chartjs-2";
-import Chart from "chart.js/auto";
 import DiminishingReturns from "./DiminishingReturns"; // Import the new component
+import Chart from "chart.js/auto";
 
 const AverageReturns = () => {
   const [averageReturns3Years, setAverageReturns3Years] = useState(null);
