@@ -160,3 +160,73 @@ p {
 footer {
   text-align: center;
 }
+
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+  body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #0d0d0d;
+    color: #f7931a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    height: 60px;
+    font-size: 10px;
+  }
+
+  .moving-text {
+    animation: moveText 20s linear infinite;
+  }
+
+  .container {
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  .header-image {
+    padding-top: 40px;
+    width: 90%;
+    transform: translateX(0);
+    /* object-fit: contain; */
+    /* max-height: 300px; */
+  }
+
+  h1,
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .card,
+  .card2 {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .input-field {
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}

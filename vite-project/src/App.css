@@ -1,42 +1,235 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #0d0d0d;
+  color: #f7931a;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  font-family: "Times New Roman", Times, serif;
+}
+
+p {
+  line-height: 20px;
+}
+.navbar {
+  width: 100%;
+  height: 40px; /* Adjust height as needed */
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: #ff8000;
+  color: #0d0d0d;
+  display: flex;
+  align-items: center; /* Centers vertically */
+}
+
+.moving-text {
+  animation: moveText 30s linear infinite;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(-100%); /* Start fully off-screen */
+  }
+  100% {
+    transform: translateX(100vw); /* Move fully off-screen to the right */
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+}
+
+.header-image {
+  margin: auto;
+  width: 70%;
+  align-items: center;
+  transform: translateX(-10px); /* Moves left */
+}
+
+h1,
+h2 {
   text-align: center;
+  color: #ff8000;
+  font-size: 30px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h3 {
+  text-align: center;
+  color: #ff8000;
+  font-size: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.orange-text {
+  color: #ff8000;
+}
+.stage-headers {
+  text-align: center;
+  color: #1a1a1a;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.card-descriptions {
+  color: #1a1a1a;
 }
 
 .card {
-  padding: 2em;
+  background: #1a1a1a;
+  border: 2px solid #ff8000;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(247, 147, 26, 0.4);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.read-the-docs {
-  color: #888;
+.card2 {
+  background: #ff8000;
+  border: 2px solid #ff8000;
+  color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(247, 147, 26, 0.4);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.input-field {
+  text-align: center;
+  width: 50%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #333333;
+  border: 2px solid #ff8000;
+  color: #ff8000;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+.input-field:focus {
+  border-color: #ff8000;
+  outline: none;
+}
+
+button {
+  background: #ff8000;
+  color: #1a1a1a;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  margin: 15px auto;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #ff8000;
+}
+
+p {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+  body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #0d0d0d;
+    color: #f7931a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    height: 60px;
+    font-size: 10px;
+  }
+
+  .moving-text {
+    animation: moveText 20s linear infinite;
+  }
+
+  .container {
+    padding: 10px;
+    max-width: 90%;
+    align-items: center;
+    transform: translateX(0);
+  }
+
+  .header-image {
+    padding-top: 40px;
+    width: 90%;
+    transform: translateX(0);
+    /* object-fit: contain; */
+    /* max-height: 300px; */
+  }
+
+  h1,
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .card,
+  .card2 {
+    padding: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+  }
+
+  .input-field {
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 10px;
+  }
 }
