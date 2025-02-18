@@ -1,23 +1,30 @@
-const CurrentHoldings = ({ coins, price, setHoldings, holdings }) => {
-  const calculateHoldings = () => {
-    if (!coins || !price) {
-      alert(
-        "Please enter a valid coin amount and ensure Bitcoin price is available."
-      );
-      return;
-    }
-    const totalHoldings = (coins * price).toFixed(0);
-    setHoldings(totalHoldings);
-    console.log("Current Holdings Updated:", totalHoldings);
-  };
+import { useEffect } from "react";
+import axios from "axios";
+
+export default function CurrentPrice({ price, setPrice }) {
+  useEffect(() => {
+    const fetchPrice = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=aud"
+        );
+        console.log("API Response:", response.data); // Debug log
+        if (response.data.bitcoin && response.data.bitcoin.aud) {
+          setPrice(response.data.bitcoin.aud);
+        } else {
+          console.error("AUD price not found in response.");
+        }
+      } catch (error) {
+        console.error("Error fetching price data", error);
+      }
+    };
+    fetchPrice();
+  }, [setPrice]);
 
   return (
     <div className="card">
-      <h2>Current Holdings Value</h2>
-      <button onClick={calculateHoldings}>Calculate</button>
-      {holdings && <h3>${holdings}</h3>}
+      <h2>Current Bitcoin Price (AUD)</h2>
+      <h3>{price !== null ? `$${price.toFixed(0)}` : "Loading..."}</h3>
     </div>
   );
-};
-
-export default CurrentHoldings;
+}
